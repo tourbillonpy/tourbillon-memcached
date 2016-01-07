@@ -2,36 +2,33 @@ Configure
 *********
 
 
-Create the tourbillon-redis configuration file
+Create the tourbillon-memcached configuration file
 ==============================================
 
-You must create the tourbillon-redis configuration file in order to use tourbillon-redis.
+You must create the tourbillon-memcached configuration file in order to use tourbillon-memcached.
 By default, the configuration file must be placed in **/etc/tourbillon/conf.d** and its name
-must be **redis.conf**.
+must be **memcached.conf**.
 
-The tourbillon-redis configuration file looks like: ::
+The tourbillon-memcached configuration file looks like: ::
 
 	{
 		"database": {
-			"name": "redis",
+			"name": "memcached",
 			"duration": "365d",
 			"replication": "1"
 		},
-		"connection": {
-			"host": "localhost",
-			"port": 6379,
-			"db": 0
-		},
+		"hostname": "localhost",
+		"port": 11211,
 		"frequency": 1
 	}
 
 
-You can customize the database name, the retencion policy and the redis connection parameters.
+You can customize the database name, the retencion policy and the memcached connection parameters.
 
 
-Enable the tourbillon-redis metrics collectors
-==============================================
+Enable the tourbillon-memcached metrics collectors
+==================================================
 
-To enable the tourbillon-redis metrics collectors types the following command: ::
+To enable the tourbillon-memcached metrics collectors types the following command: ::
 
-	$ sudo -i tourbillon enable tourbillon.redis=get_redis_stats
+	$ sudo -i tourbillon enable tourbillon.memcached=get_memcached_stats
